@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Panadería Delicia - Contacto</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- PWA Config -->
+    <meta name="theme-color" content="#ec9513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec9513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221b10",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .group:focus-within .group-focus-within\:flex {
+            display: flex;
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#333] dark:text-[#ccc]">
+    <div class="flex flex-col min-h-screen">
+        <header
+            class="bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-primary/20 dark:border-primary/10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex items-center gap-3">
+                        <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Panadería Delicia</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="index.html">Inicio</a>
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="productos.html">Productos</a>
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="nosotros.html">Nosotros</a>
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="visitanos.html">Visitanos</a>
+                        <a class="text-sm font-bold text-primary dark:text-primary" href="contacto.html">Contacto</a>
+                    </nav>
+                    <div class="flex items-center gap-2">
+                        <button id="login-btn"
+                            class="hidden rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                            Iniciar Sesión
+                        </button>
+                        <div id="user-info" class="hidden items-center gap-2">
+                            <span id="user-name" class="text-sm"></span>
+                            <button id="logout-btn"
+                                class="rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                                Cerrar Sesión
+                            </button>
+                        </div>
+                        <div class="cart-container">
+                            <a href="carrito.html"
+                                class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <span id="cart-count" class="cart-count"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="flex flex-col contact-form-container">
+                    <div class="mb-8">
+                        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Ponte en contacto</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">¿Tienes alguna pregunta, comentario o
+                            necesitas ayuda? No dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte.
+                        </p>
+                    </div>
+                    <form action="#" class="space-y-6" method="POST">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                                for="name">Nombre</label>
+                            <input
+                                class="form-input w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out"
+                                id="name" name="name" placeholder="Tu nombre" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                                for="email">Correo electrónico</label>
+                            <input
+                                class="form-input w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out"
+                                id="email" name="email" placeholder="Tu correo electrónico" type="email" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                                for="message">Mensaje</label>
+                            <textarea
+                                class="form-textarea w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out"
+                                id="message" name="message" placeholder="Escribe tu mensaje aquí" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <button
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all"
+                                type="submit">
+                                Enviar mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Información de contacto</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <p class="w-1/3 text-sm font-medium text-gray-500 dark:text-gray-400">Teléfono</p>
+                                <p class="w-2/3 text-sm text-gray-800 dark:text-gray-200">+51 999 999 999 </p>
+                            </div>
+                            <div class="flex items-start border-t border-primary/10 dark:border-primary/5 pt-4">
+                                <p class="w-1/3 text-sm font-medium text-gray-500 dark:text-gray-400">Correo electrónico
+                                </p>
+                                <p class="w-2/3 text-sm text-gray-800 dark:text-gray-200">contacto@panaderiadelicia.com
+                                </p>
+                            </div>
+                            <div class="flex items-start border-t border-primary/10 dark:border-primary/5 pt-4">
+                                <p class="w-1/3 text-sm font-medium text-gray-500 dark:text-gray-400">Redes sociales</p>
+                                <div class="w-2/3 flex space-x-4">
+                                    <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                                        href="#"><svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                            width="24px" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                                            </path>
+                                        </svg></a>
+                                    <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                                        href="#"><svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                            width="24px" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
+                                            </path>
+                                        </svg></a>
+                                    <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                                        href="#"><svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                            width="24px" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                                            </path>
+                                        </svg></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Preguntas frecuentes</h3>
+                        <div class="space-y-4">
+                            <details
+                                class="group rounded-lg border border-primary/20 dark:border-primary/10 bg-background-light dark:bg-background-dark p-4">
+                                <summary class="flex justify-between items-center cursor-pointer list-none">
+                                    <span class="font-medium text-gray-800 dark:text-gray-200">¿Cuáles son sus horarios
+                                        de atención?</span>
+                                    <span
+                                        class="text-gray-500 dark:text-gray-400 group-open:rotate-180 transition-transform">
+                                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <p class="mt-4 text-gray-600 dark:text-gray-400">Nuestros horarios de atención son de
+                                    lunes a sábado de 7:00 AM a 8:00 PM y domingos de 8:00 AM a 2:00 PM.</p>
+                            </details>
+                            <details
+                                class="group rounded-lg border border-primary/20 dark:border-primary/10 bg-background-light dark:bg-background-dark p-4">
+                                <summary class="flex justify-between items-center cursor-pointer list-none">
+                                    <span class="font-medium text-gray-800 dark:text-gray-200">¿Ofrecen opciones sin
+                                        gluten?</span>
+                                    <span
+                                        class="text-gray-500 dark:text-gray-400 group-open:rotate-180 transition-transform">
+                                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <p class="mt-4 text-gray-600 dark:text-gray-400">Sí, ofrecemos una selección de
+                                    productos sin gluten. Por favor, pregunta a nuestro personal para más detalles sobre
+                                    las opciones disponibles cada día.</p>
+                            </details>
+                            <details
+                                class="group rounded-lg border border-primary/20 dark:border-primary/10 bg-background-light dark:bg-background-dark p-4">
+                                <summary class="flex justify-between items-center cursor-pointer list-none">
+                                    <span class="font-medium text-gray-800 dark:text-gray-200">¿Puedo hacer un pedido
+                                        personalizado?</span>
+                                    <span
+                                        class="text-gray-500 dark:text-gray-400 group-open:rotate-180 transition-transform">
+                                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <p class="mt-4 text-gray-600 dark:text-gray-400">¡Claro! Aceptamos pedidos
+                                    personalizados para pasteles y otros productos de panadería. Contáctanos con al
+                                    menos 48 horas de antelación para discutir tus necesidades.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Mejorado -->
+        <footer class="bg-background-dark text-background-light py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Información de la empresa -->
+                    <div class="footer-section">
+                        <h3>Panadería Delicia</h3>
+                        <p class="mb-4">Desde 1985, horneando con amor los mejores productos artesanales para endulzar
+                            tu día.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.001 12.017 24.001c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Enlaces rápidos -->
+                    <div class="footer-section">
+                        <h3>Enlaces Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                            <li><a href="productos.html">Nuestros Productos</a></li>
+                            <li><a href="visitanos.html">Ubicaciones</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="footer-section">
+                        <h3>Horarios de Atención</h3>
+                        <ul class="footer-links">
+                            <li>Lunes a Viernes: 7:00 AM - 8:00 PM</li>
+                            <li>Sábados: 8:00 AM - 6:00 PM</li>
+                            <li>Domingos: 8:00 AM - 2:00 PM</li>
+                        </ul>
+                    </div>
+
+                    <!-- Boletín informativo -->
+                    <div class="footer-section">
+                        <h3>Boletín Informativo</h3>
+                        <p class="mb-4">Suscríbete para recibir nuestras promociones y novedades.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-button">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+                    <p>&copy; 2024 Panadería Delicia. Todos los derechos reservados.</p>
+                    <p class="mt-2 text-sm opacity-70">Hecho con ❤️ y la mejor harina</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de Autenticación -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <!-- Formulario de Login -->
+            <div id="login-form">
+                <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button id="login-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Iniciar Sesión
+                </button>
+                <p class="mt-4 text-center">
+                    ¿No tienes cuenta?
+                    <a href="#" id="switch-to-register" class="text-primary hover:underline">Regístrate aquí</a>
+                </p>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <div id="register-form" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Crear Cuenta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nombre Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button id="register-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Registrarse
+                </button>
+                <p class="mt-4 text-center">
+                    ¿Ya tienes cuenta?
+                    <a href="#" id="switch-to-login" class="text-primary hover:underline">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        }
+    </script>
+</body>
+
+</html>

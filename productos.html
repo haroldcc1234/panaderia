@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Panadería Delicia - Productos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <!-- PWA Config -->
+    <meta name="theme-color" content="#ec9513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec9513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221b10",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-800 dark:text-stone-200">
+    <div class="flex flex-col min-h-screen">
+        <header class="border-b border-primary/20 dark:border-primary/30">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between py-4">
+                    <div class="flex items-center gap-6">
+                        <a class="flex items-center gap-2 text-xl font-bold text-stone-900 dark:text-white"
+                            href="index.html">
+                            <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <span>Panadería Delicia</span>
+                        </a>
+                        <nav class="hidden md:flex items-center gap-6">
+                            <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Inicio</a>
+                            <a class="text-sm font-medium hover:text-primary transition-colors" href="nosotros.html">Nosotros</a>
+                            <a class="text-sm font-medium text-primary" href="productos.html">Productos</a>
+                            <a class="text-sm font-medium hover:text-primary transition-colors" href="visitanos.html">Visitanos</a>
+                            <a class="text-sm font-medium hover:text-primary transition-colors" href="contacto.html">Contacto</a>
+                        </nav>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="relative hidden sm:block">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 dark:text-stone-400">search</span>
+                            <input
+                                class="w-full max-w-xs rounded-lg border-none bg-background-light dark:bg-background-dark pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark"
+                                placeholder="Buscar..." type="text" />
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="login-btn"
+                                class="hidden rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                                Iniciar Sesión
+                            </button>
+                            <div id="user-info" class="hidden items-center gap-2">
+                                <span id="user-name" class="text-sm"></span>
+                                <button id="logout-btn"
+                                    class="rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                                    Cerrar Sesión
+                                </button>
+                            </div>
+                            <div class="cart-container">
+                                <a href="carrito.html"
+                                    class="flex items-center justify-center rounded-lg p-2 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+                                    <span
+                                        class="material-symbols-outlined text-stone-800 dark:text-stone-200">shopping_cart</span>
+                                </a>
+                                <span id="cart-count" class="cart-count"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <h1 class="text-3xl font-bold tracking-tight text-stone-900 dark:text-white">Nuestros Productos</h1>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <button
+                        class="px-4 py-2 text-sm font-medium rounded-lg bg-primary/20 hover:bg-primary/30 dark:bg-primary/30 dark:hover:bg-primary/40 transition-colors">Todos</button>
+                    <button
+                        class="px-4 py-2 text-sm font-medium rounded-lg bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">Panes</button>
+                    <button
+                        class="px-4 py-2 text-sm font-medium rounded-lg bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">Pasteles</button>
+                    <button
+                        class="px-4 py-2 text-sm font-medium rounded-lg bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">Postres</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="1">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGwQSxJ-nIqyLZDhwV7C4R94fsgSj6wTdUpKcpCBsDq-vAttFH5r06U-vPACM_aHPyZbEW-o6bq68nYPpl0BngyaU2b2pR8KmKtex_1TOMKDrGv64mi5sqTfPilXutP6v18DCEDOcL5KGGLh0qXb73D-a7Lk98lYAUvw8ETl67g8cx8ER5FzEva1UPiiCfYgVlB2Dw2zBo_0YrHutWzzGdJO9InKv0yeEsCyH2m8xXaHsPCssGqfd9AMaFVYdjqffU66OiVKVeqpeu"
+                            alt="Pan Artesanal" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Pan Artesanal</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Pan hecho a mano con masa
+                            madre.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$3.50</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="2">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeS6ZyrDym9IT7xJ9dmvFYzmSSaxiqG6Jok_7bWm-VcyqSPn58uKfrPhL0t7SDdxSRPPDLiMy5Cg3NRMznPg-Ebg9D-VmLERvAF7Qn2sLtH8TG6sekqD2hegQSTg1TKte0RFmzZT5xa0VBXzaoz6-caC-jD82zwUBRGqaibHJzAW4fb5HS7TQNnI8w3eQ7coDRnTsTwTKvi7m0VPm5Pj8vrHAYtJnioZgdPH1iZQXVP-_Cs-GZ-STPTKYImBTFAVwlHYUEQ8bRMa1M"
+                            alt="Pastel de Chocolate" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Pastel de Chocolate</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Delicioso pastel de
+                            chocolate con cobertura.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$25.00</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="3">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAuNv6Z0Et9xzzftEQdPp8C9PKCZB7ghj5yu_YSrumIb8RVQCWpLogMF6k0QliRat0V5lQ_4IroJ7eNb3LCihSNOwB7fPtxrEqa5riYXfi4JP6nl7Tgx78MlHkWgPdHLbwl8Z6cHcCQpRPL0FrwqDhnVno9Er07a6-xQf0eWWyYEPSs0d1N-5wSm-GJdcv9Tox4gWq48v23VTzlMgIvxlsY8e2fRl7UwRZ-OQOopbwV_w7kfQx_3nOfdbBKIwc3RWA1sPI4KND4V3"
+                            alt="Tarta de Frutas" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Tarta de Frutas</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Tarta fresca con frutas de
+                            temporada.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$22.50</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="4">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaAyMEmoBMfhMAREU6GSdG3W0JdGCmOPXBmF7-eucFJvpn28Ac9pXiIeBm8zk0hquOlkAzAswucRTJMm9oAuD3g5M1dLpHBC7VruDI-8OGWv97EvQuNcl_-_MXp2dUG8-hHYlujUotBKL7gxVdIRob9KUcSQcdRRAGmMRqQuA-FjaMAQzUJ1vHCr-qpvPxN06R-bIYBV4dLY-kNfP9t-8sxtXdZ9hjLEa1oOBUQzEWuIuDnjqc8s_XtDt2pl-n9bPaNdD6i9DwapPh"
+                            alt="Croissant" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Croissant</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Croissant crujiente y
+                            hojaldrado.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$2.00</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="5">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTQbPE0dNXhPg2eXI7HfbJyKQeZvjMEthlGwK7WA5StYueQtFEY2EpHmvAALY8GYSua-EX28qD7WZ5TtIENxnYKGFfItSk3Y0QLdSoyln6Y-gJzlN62Y4uFa-QLLjOs3LDzbwelbaYC069ckWNOUWjQBG8Rhc2lhH7_L0FPSapuFfoo8Yb0ryF9tGyHVIHZVQxYuUphq1tBUj3BrUHXtfa9VcUoL7l7stDaqaUMA44w0c4wiR9MFWmaAsmaiwG7kCzBsWCA7-giSt"
+                            alt="Pan de Centeno" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Pan de Centeno</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Pan de centeno con
+                            semillas.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$4.00</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="6">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6yUSQttTZHjXg1H7kem8ZG50w-LnU74dY9XIOb7dD3l-ML98N_36BVTenaL6oexVp5MvFDP-mV8FEo633A1qp_TH9WJcwCyITsmN80QURc8YRhx-67t_CD1bODsHmy2ilpJN3qit_HUv_uJfhz52R8SePfVRhWtdpN6kchmpx-SaDV-EedMGP8fDXDsfq7MEZ06_oChD4KWr9YDre_ja3oQeiACYIW1ntc3-7YW2uXD4xmZKVTfvYDCSPObCyZx8YgfNtLoQWYnba"
+                            alt="Pastel de Zanahoria" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Pastel de Zanahoria</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Pastel de zanahoria con
+                            glaseado de queso crema.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$28.00</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="7">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtWEvSWAlj_JWntxn4OZX-Z8ylYdFG4iqWFVewX6k6J4kp_SEjy91DdUXlhQzrRNpL9qm4Y1Kcm6P38w_dubavfmrLy-zG-A7zSgmQl-hqGcCJvCaf9aK7F0KdZEA9jonJd3caRC3TAaUTE88i-Wk_uTSN1T8isqxACIn0WMOtUpGCvqRatqV9PX_7g7tqnHwm4Oec8eSXXReBz4gE5olRUJMDRt36INy_UOr0jZ5SuMRzxK1Skz9dFYhjuiHPm0ntwi_F9Sv-F-Wr"
+                            alt="Mousse de Chocolate" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Mousse de Chocolate</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Mousse de chocolate suave y
+                            cremoso.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$6.50</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card group relative flex flex-col rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-stone-900/50"
+                    data-product-id="8">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5l3ekunKd7rzCDVCs71z1QrdfcjjqnQlkgno8ZjXMnMjZhbovB4g7O00jxGYCgGhdgtG_EHGUAstHqZgnx5aNfYlYnVH3qFosz21iEao00Dd_Mt73TqSdALddcHRvMxWHd2aXLIv2mrfQjU5DfCDQFX-LQgVxsiBNlqjoUFMqP1zHJaUw8Kyul2lTPSBvnNWgXQOfoEaME-S_7czqrec9GL0mugCpVZ8I9_s9doI0hjl7Vu5MIVxJ9CL2LPczpiFkpFGFC-kYb9wx"
+                            alt="Ensaimada" />
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Ensaimada</h3>
+                        <p class="text-sm text-stone-600 dark:text-stone-400 mt-1 flex-grow">Ensaimada dulce y
+                            esponjosa.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-bold text-primary product-price">$2.75</span>
+                            <button
+                                class="add-to-cart px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-opacity-90 transition-colors">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Mejorado -->
+        <footer class="bg-background-dark text-background-light py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Información de la empresa -->
+                    <div class="footer-section">
+                        <h3>Panadería Delicia</h3>
+                        <p class="mb-4">Desde 1985, horneando con amor los mejores productos artesanales para endulzar
+                            tu día.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.001 12.017 24.001c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Enlaces rápidos -->
+                    <div class="footer-section">
+                        <h3>Enlaces Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                            <li><a href="productos.html">Nuestros Productos</a></li>
+                            <li><a href="visitanos.html">Ubicaciones</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="footer-section">
+                        <h3>Horarios de Atención</h3>
+                        <ul class="footer-links">
+                            <li>Lunes a Viernes: 7:00 AM - 8:00 PM</li>
+                            <li>Sábados: 8:00 AM - 6:00 PM</li>
+                            <li>Domingos: 8:00 AM - 2:00 PM</li>
+                        </ul>
+                    </div>
+
+                    <!-- Boletín informativo -->
+                    <div class="footer-section">
+                        <h3>Boletín Informativo</h3>
+                        <p class="mb-4">Suscríbete para recibir nuestras promociones y novedades.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-button">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+                    <p>&copy; 2024 Panadería Delicia. Todos los derechos reservados.</p>
+                    <p class="mt-2 text-sm opacity-70">Hecho con ❤️ y la mejor harina</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de Autenticación -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <!-- Formulario de Login -->
+            <div id="login-form">
+                <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button id="login-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Iniciar Sesión
+                </button>
+                <p class="mt-4 text-center">
+                    ¿No tienes cuenta?
+                    <a href="#" id="switch-to-register" class="text-primary hover:underline">Regístrate aquí</a>
+                </p>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <div id="register-form" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Crear Cuenta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nombre Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button id="register-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Registrarse
+                </button>
+                <p class="mt-4 text-center">
+                    ¿Ya tienes cuenta?
+                    <a href="#" id="switch-to-login" class="text-primary hover:underline">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        }
+    </script>
+</body>
+
+</html>

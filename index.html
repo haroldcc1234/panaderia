@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PWA Config -->
+    <meta name="theme-color" content="#ec9513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Epilogue:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <title>Panadería Delicia - Inicio</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec9513",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221b10",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-background-dark dark:text-background-light">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 px-4 sm:px-6 lg:px-10 py-4">
+            <div class="flex items-center gap-3">
+                <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                        fill="currentColor"></path>
+                </svg>
+                <h1 class="text-xl font-bold">Panadería Delicia</h1>
+            </div>
+            <nav class="hidden items-center gap-8 md:flex">
+                <a class="text-sm font-medium text-primary" href="index.html">Inicio</a>
+                <a class="text-sm font-medium hover:text-primary" href="nosotros.html">Nosotros</a>
+                <a class="text-sm font-medium hover:text-primary" href="productos.html">Productos</a>
+                <a class="text-sm font-medium hover:text-primary" href="visitanos.html">Visitanos</a>
+                <a class="text-sm font-medium hover:text-primary" href="contacto.html">Contacto</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="login-btn"
+                    class="hidden rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                    Iniciar Sesión
+                </button>
+                <div id="user-info" class="hidden items-center gap-2">
+                    <span id="user-name" class="text-sm"></span>
+                    <button id="logout-btn"
+                        class="rounded bg-primary/10 px-4 py-2 text-sm font-bold hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                        Cerrar Sesión
+                    </button>
+                </div>
+                <div class="cart-container">
+                    <a href="carrito.html"
+                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-background-dark transition-colors hover:bg-primary/30 dark:text-background-light">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </a>
+                    <span id="cart-count" class="cart-count"></span>
+                </div>
+            </div>
+        </header>
+   
+                <!-- Carrusel de Bienvenida - Pantalla Completa -->
+                <section class="relative w-full h-screen overflow-hidden">
+                    <div class="carousel-container relative w-full h-full">
+                        <div class="carousel-slides flex transition-transform duration-700 ease-in-out h-full">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide min-w-full h-full relative">
+                                <div class="w-full h-full relative">
+                                    <img src="img/hero1.jpg" alt="Panadería Delicia"
+                                        class="w-full h-full object-cover">
+                                    <!-- Texto superpuesto -->
+                                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                        <div class="text-center text-white px-4 max-w-4xl">
+                                            <h4 class="text-4xl md:text-6xl font-bold mb-6">Panadería Delicia</h4>
+                                            <p class="text-xl md:text-2xl opacity-90 mb-8">Desde 1985 horneando con amor
+                                                y tradición</p>
+                                            <a href="productos.html"
+                                                class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-primary/90 transition-all transform hover:scale-105">
+                                                Descubre Nuestros Productos
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide min-w-full h-full relative">
+                                <div class="w-full h-full relative">
+                                    <img src="img/hero2.jpg" alt="Productos Frescos"
+                                        class="w-full h-full object-cover">
+                                    <!-- Texto superpuesto -->
+                                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                        <div class="text-center text-white px-4 max-w-4xl">
+                                            <h4 class="text-4xl md:text-6xl font-bold mb-6">Productos Frescos Diarios
+                                            </h4>
+                                            <p class="text-xl md:text-2xl opacity-90 mb-8">Horneamos cada mañana para
+                                                brindarte lo mejor</p>
+                                            <a href="productos.html"
+                                                class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-primary/90 transition-all transform hover:scale-105">
+                                                Ver Menú Completo
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide min-w-full h-full relative">
+                                <div class="w-full h-full relative">
+                                    <img src="img/hero3.jpg" alt="Calidad Artesanal"
+                                        class="w-full h-full object-cover">
+                                    <!-- Texto superpuesto -->
+                                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                        <div class="text-center text-white px-4 max-w-4xl">
+                                            <h4 class="text-4xl md:text-6xl font-bold mb-6">Calidad Artesanal</h4>
+                                            <p class="text-xl md:text-2xl opacity-90 mb-8">Ingredientes seleccionados,
+                                                sabor inigualable</p>
+                                            <a href="nosotros.html"
+                                                class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-primary/90 transition-all transform hover:scale-105">
+                                                Conoce Nuestra Historia
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de navegación mejorados -->
+                        <button
+                            class="carousel-prev absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-4 shadow-2xl transition-all z-10 backdrop-blur-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="carousel-next absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-4 shadow-2xl transition-all z-10 backdrop-blur-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <!-- Indicadores mejorados -->
+                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 z-10">
+                            <button
+                                class="carousel-indicator w-4 h-4 rounded-full bg-white/40 hover:bg-white transition-all duration-300 carousel-indicator-active border-2 border-white/60"></button>
+                            <button
+                                class="carousel-indicator w-4 h-4 rounded-full bg-white/40 hover:bg-white transition-all duration-300 border-2 border-white/60"></button>
+                            <button
+                                class="carousel-indicator w-4 h-4 rounded-full bg-white/40 hover:bg-white transition-all duration-300 border-2 border-white/60"></button>
+                        </div>
+
+                        <!-- Flecha de scroll down -->
+                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Destacados de la Semana -->
+                <section class="py-12">
+                    <h3 class="px-4 pb-6 pt-5 text-2xl font-bold">Destacados de la Semana</h3>
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex flex-col gap-4 rounded-lg">
+                            <div class="aspect-video w-full rounded-lg bg-cover bg-center"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCG14Ou3OU_88BgSGpx9lL4Gu_m5CKLwCyNIlpHIENFZ5mW8umMfIj9PTT8hepPzhQfUUflRpPRx1ZZy6wMESsg2p_ERlrXG15zTDrBKakOmB5ZxED1fY4LPUVpPWkP7VceTgeHR30_Nkdxi9EpmF_exAF0ZXLaN-jMDQ5aAne6Fvc_9VCFrqAtpqvMUt4iFUIEaNqO8V4PGlzWDuPKwDU4h-7v5_xOn6E9blQG6CNG76-COV3f_-otCG1JXQak425xG8tpUGxmAmSD");'>
+                            </div>
+                            <p class="text-center text-lg font-medium">Croissants Dorados</p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-lg">
+                            <div class="aspect-video w-full rounded-lg bg-cover bg-center"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbLtxL5vsQVebIaS7_6gsPkBpEBuiqWMpLcz5dm1j7dh7awgM45dol0Gz8IrbFb3dSGvGIoNb593_lNJXs4zDJpbemupYBPOmyf-rovnaXVkhtpMjHWJC4WW1cOlWUefpTrWlYzHI6k5iTcMf5K1YSUVwtoIGtQLfzcJnyKCdGbqs256u8TzlfinlLN19KIJixoebjyt_a329MLGerfFAO5qS4AZlgcIZxIRgSQ72S9pqQ3d6-mmxrSgCKvbfP4fykX6r6eDZQClIC");'>
+                            </div>
+                            <p class="text-center text-lg font-medium">Pan de Masa Madre Artesanal</p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-lg">
+                            <div class="aspect-video w-full rounded-lg bg-cover bg-center"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOfeNGo368Vo1qI8pvcxvwLUyod2Skrxdn2nIeV1s1TK9ye0SmbeIv40dxHpkCG8GHjBGElufhQhuz8SZ8JG5kXoIC3D2hFYkX-2sN-dugPhaedPLU2tHcwuMEOSWFIn6uAtVdq_pUNjjxmCcAvtk1h3Lbey9KJgIzL245Zn0-iyHzu1ZrmQ01EkJajzMteZdDmutGOx1Z4FQBbaVhf14O_MLpGeuq4ukqql0WnRZCjKm--djaiWpn8EhCEwzQlQaWlG2Y5My5fR0s");'>
+                            </div>
+                            <p class="text-center text-lg font-medium">Delicias de Repostería</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Promociones Especiales -->
+                <section class="py-12">
+                    <h3 class="px-4 pb-6 pt-5 text-2xl font-bold">Promociones Especiales</h3>
+                    <div class="overflow-hidden rounded-xl bg-background-light shadow-lg dark:bg-background-dark/50">
+                        <div class="flex flex-col items-stretch lg:flex-row">
+                            <div class="w-full flex-shrink-0 bg-cover bg-center lg:w-1/2"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkO2FcxQ6g68onHGDJStOatjsZzDwl_IVu1M95DWMCugGXyRdWpn9BqEdTLvm_FDfXZj8Ta-utwki4lWUee6gzzRXFpsas61T6ngQtyvlMljCQjT6SLRalHLFMP489LHlNmYqW_bqIeZTs8gQI90NJITjE80qDP3eWypa6nAMe5c22H4_3VaaKIzu1vjfnzcTmfuiBqcIYI3nLZAjF_I8a2If8VM32UwKy3foImSeSyYSkIIgzgRJtGPJSAhrdemQ13JSdQgrpGRA0"); min-height: 250px;'>
+                            </div>
+                            <div class="flex flex-col justify-center gap-4 p-8">
+                                <h4 class="text-xl font-bold">Descuento de Fin de Semana</h4>
+                                <p class="text-background-dark/70 dark:text-background-light/70">Obtén un 15% de
+                                    descuento en todas las compras superiores a $20.</p>
+                                <div class="mt-4 flex">
+                                    <a href="productos.html"
+                                        class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white transition-transform hover:scale-105">Ver
+                                        Promoción</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ubicaciones -->
+                <section class="py-12 text-center">
+                    <h3 class="px-4 pb-6 pt-5 text-2xl font-bold">Nuestras Ubicaciones</h3>
+                    <div class="mx-auto aspect-video w-full max-w-4xl rounded-xl bg-cover bg-center"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZ6m9JzH9thv6L56KSYKvp1d38l5FKw660qHu1dQi6LMT_DaekJoVImztWd_iEp5ovprTGFNZ0En9c1HiiwCZj43671dbjVe5-FhrdWqVhT86G_ISChtlz0bKjcobQqV3q8e79BpT1HUi42ohxEPILHgBoRTHJwPEjA7eoUUOqCWDctk2r4nUTarPyhmxT7ACCFciwnEQks9x4C0nCDW5xSt23i1vvALAXMVhG7fS4drvANKqia8fib2dAiWtdCODDyyLDhrHm8FXj");'>
+                    </div>
+                    <div class="mt-8 flex justify-center">
+                        <a href="visitanos.html"
+                            class="flex h-12 items-center justify-center rounded-lg bg-primary/20 px-6 text-sm font-bold text-background-dark transition-colors hover:bg-primary/30 dark:text-background-light">Encuentra
+                            tu Panadería Delicia más cercana</a>
+                    </div>
+                </section>
+            </div>
+
+        <!-- Footer Mejorado -->
+        <footer class="bg-background-dark text-background-light py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Información de la empresa -->
+                    <div class="footer-section">
+                        <h3>Panadería Delicia</h3>
+                        <p class="mb-4">Desde 1985, horneando con amor los mejores productos artesanales para endulzar
+                            tu día.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.001 12.017 24.001c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Enlaces rápidos -->
+                    <div class="footer-section">
+                        <h3>Enlaces Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                            <li><a href="productos.html">Nuestros Productos</a></li>
+                            <li><a href="visitanos.html">Ubicaciones</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="footer-section">
+                        <h3>Horarios de Atención</h3>
+                        <ul class="footer-links">
+                            <li>Lunes a Viernes: 7:00 AM - 8:00 PM</li>
+                            <li>Sábados: 8:00 AM - 6:00 PM</li>
+                            <li>Domingos: 8:00 AM - 2:00 PM</li>
+                        </ul>
+                    </div>
+
+                    <!-- Boletín informativo -->
+                    <div class="footer-section">
+                        <h3>Boletín Informativo</h3>
+                        <p class="mb-4">Suscríbete para recibir nuestras promociones y novedades.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-button">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+                    <p>&copy; 2024 Panadería Delicia. Todos los derechos reservados.</p>
+                    <p class="mt-2 text-sm opacity-70">Hecho con ❤️ y la mejor harina</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de Autenticación -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <!-- Formulario de Login -->
+            <div id="login-form">
+                <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button id="login-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Iniciar Sesión
+                </button>
+                <p class="mt-4 text-center">
+                    ¿No tienes cuenta?
+                    <a href="#" id="switch-to-register" class="text-primary hover:underline">Regístrate aquí</a>
+                </p>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <div id="register-form" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Crear Cuenta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nombre Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button id="register-submit"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    Registrarse
+                </button>
+                <p class="mt-4 text-center">
+                    ¿Ya tienes cuenta?
+                    <a href="#" id="switch-to-login" class="text-primary hover:underline">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(reg => console.log('Service Worker registrado', reg)).catch(err => console.log('Error al registrar Service Worker', err));
+        }
+    </script>
+
+</body>
+
+</html>
