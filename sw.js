@@ -18,8 +18,8 @@ const urlsToCache = [
     '/img/hero2.jpg',
     '/img/hero3.jpg',
     // Iconos de la App
-    '/img/icons/icon-192x192.png',
-    '/img/icons/icon-512x512.png'
+    '/img/icons/icon-192x192.png', // Asegúrate de que este archivo exista
+    '/img/icons/icon-512x512.png'  // Asegúrate de que este archivo exista
 ];
 
 // Evento 'install': se dispara cuando el Service Worker se instala.

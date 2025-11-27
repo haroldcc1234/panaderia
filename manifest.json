@@ -10,15 +10,15 @@
     "orientation": "any",
     "icons": [
         {
-            "src": "/img/hero3.jpg",
+            "src": "/img/icons/icon-192x192.png",
             "sizes": "192x192",
-            "type": "image/jpeg",
+            "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/img/hero3.jpg",
+            "src": "/img/icons/icon-512x512.png",
             "sizes": "512x512",
-            "type": "image/jpeg"
+            "type": "image/png"
         }
     ],
     "screenshots": [
@@ -31,7 +31,7 @@
         },
         {
             "src": "/img/hero2.jpg",
-            "sizes": "612x408",
+            "sizes": "612x438",
             "type": "image/jpeg",
             "form_factor": "wide",
             "label": "Productos Frescos Diarios"
