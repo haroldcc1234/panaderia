@@ -93,6 +93,16 @@ function setupEventListeners() {
     
     // Funcionalidad del carrito
     setupCartFunctionality();
+
+    // Funcionalidad del menú móvil
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 }
 
 // Funciones de autenticación

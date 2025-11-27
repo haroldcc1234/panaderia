@@ -53,9 +53,9 @@
 
 <body class="bg-background-light dark:bg-background-dark font-display text-stone-800 dark:text-stone-200">
     <div class="flex flex-col min-h-screen">
-        <header class="border-b border-primary/20 dark:border-primary/30">
+        <header class="sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-50 border-b border-primary/20 dark:border-primary/30">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between py-4">
+                <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-6">
                         <a class="flex items-center gap-2 text-xl font-bold text-stone-900 dark:text-white"
                             href="index.html">
@@ -73,6 +73,15 @@
                             <a class="text-sm font-medium text-primary" href="productos.html">Productos</a>
                             <a class="text-sm font-medium hover:text-primary transition-colors" href="visitanos.html">Visitanos</a>
                             <a class="text-sm font-medium hover:text-primary transition-colors" href="contacto.html">Contacto</a>
+                        </nav>
+                        <!-- Botón de Menú Móvil (Hamburguesa) -->
+                        <div class="md:hidden">
+                            <button id="mobile-menu-button" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                                <span class="sr-only">Abrir menú principal</span>
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                                </svg>
+                            </button>
                         </nav>
                     </div>
                     <div class="flex items-center gap-4">
@@ -108,6 +117,18 @@
                 </div>
             </div>
         </header>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-primary/20">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary">Inicio</a>
+                <a href="nosotros.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary">Nosotros</a>
+                <a href="productos.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-primary/10">Productos</a>
+                <a href="visitanos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary">Visitanos</a>
+                <a href="contacto.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary">Contacto</a>
+            </div>
+        </div>
+
         <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
                 <h1 class="text-3xl font-bold tracking-tight text-stone-900 dark:text-white">Nuestros Productos</h1>
